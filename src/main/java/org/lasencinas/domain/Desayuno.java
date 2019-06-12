@@ -22,7 +22,7 @@ public class Desayuno implements Item {
     public void mostrarItems() {
         System.out.println("\n" + cereales.toString());
         System.out.println(bebida.toString());
-        if (existeJuguete) {
+        if (this.existeJuguete) {
             System.out.println(juguete.toString());
         }
     }
@@ -38,8 +38,11 @@ public class Desayuno implements Item {
     }
 
     public float getCoste() {
-        coste = bebida.pvp() + cereales.pvp();
-        return coste;
+        this.coste = this.bebida.pvp() + this.cereales.pvp();
+        if (this.existeJuguete) {
+            this.coste += this.juguete.pvp();
+        }
+        return this.coste;
     }
 
     public String nombre() {
